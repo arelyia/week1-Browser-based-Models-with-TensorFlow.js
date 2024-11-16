@@ -4,7 +4,7 @@
     <script lang="js">
         
         async function run(){
-            const trainingUrl = '/data/wdbc-train.csv';
+            const trainingUrl = 'wdbc-train.csv';
             
             // Take a look at the 'wdbc-train.csv' file and specify the column
             // that should be treated as the label in the space below.
@@ -28,7 +28,7 @@
                 return{xs:Object.values(xs), ys: Object.values(ys)};
             }).batch(10);
                   
-            const testingUrl = '/data/wdbc-test.csv';
+            const testingUrl = 'wdbc-test.csv';
             
             // Take a look at the 'wdbc-test.csv' file and specify the column
             // that should be treated as the label in the space below..
@@ -69,10 +69,10 @@
             // using ReLu activation functions where applicable. For this dataset only a few
             // hidden layers should be enough to get a high accuracy.  
             const model = tf.sequential();
-            model.add(tf.layers.dense({inputShape: [numOfFeatures],activation:"sigmoid",units:31 }))
-            model.add(tf.layers.dense({activation:"sigmoid",units:15 }))
-            
-            model.add(tf.layers.dense({activation: "sigmoid", units: 1}));
+            model.add(tf.layers.dense({inputShape: [numOfFeatures],activation: "sigmoid",units: 5}));
+			model.add(tf.layers.dense({units: 10, activation: "relu"}));
+			
+			model.add(tf.layers.dense({units: 1,activation: "sigmoid"}));
 
             
             
